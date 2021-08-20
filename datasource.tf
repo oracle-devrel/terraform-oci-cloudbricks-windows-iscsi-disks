@@ -35,7 +35,7 @@ locals {
   # Backup Policy Local Accessor 
   backup_policy_iscsi_disk_id = data.oci_core_volume_backup_policies.BACKUPPOLICYISCSI.volume_backup_policies[0].id
 
-  # 
+  # Template and Powershell enablement scripts
   template               = file("${path.module}/${var.userdata}/${var.setup_ps1}")
   powershell             = "powershell.exe"
   format_disk_ps1_source = "${path.module}/${var.userdata}/${var.format_disk_ps1}"

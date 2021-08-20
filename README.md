@@ -8,9 +8,7 @@ The following brick enables the creation of several Disks to later be attached t
 ## Reference Architecture
 The following is the reference architecture associated to this brick
 
-MISSING
-
-<!-- ![Reference Architecture](./images/{image.png}) -->
+![Reference Architecture](./images/Bricks_Architectures-windows_iscsi_disks.jpeg)
 
 ### Prerequisites
 - Pre-baked Artifact and Network Compartments
@@ -20,27 +18,33 @@ MISSING
 # Sample tfvars file
 
 ```shell
+########## SAMPLE TFVAR FILE ##########
 ######################################## PROVIDER SPECIFIC VARIABLES ######################################
-tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaaoqdygmiidrabhv3y4hkr3rb3z6dpmgotvq2scffra6jt7rubresa"
-region           = "sa-santiago-1"
-user_ocid        = "ocid1.user.oc1..aaaaaaaafl42rhkw624h4os6n2ulcfxjjn2ylqsanhgtcph7j7owirzj6gya"
-fingerprint      = "9a:9e:13:cf:94:6e:2c:b9:54:d2:60:0d:e4:14:8b:5e"
-private_key_path = "/Users/dralquinta/OneDrive/DevOps/My_Keys/oci_api_key.pem"
+region           = "foo-region-1"
+tenancy_ocid     = "ocid1.tenancy.oc1..abcdefg"
+user_ocid        = "ocid1.user.oc1..aaaaaaabcdefg"
+fingerprint      = "fo:oo:ba:ar:ba:ar"
+private_key_path = "/absolute/path/to/api/key/your_api_key.pem"
 ######################################## PROVIDER SPECIFIC VARIABLES ######################################
 ######################################## DISK SPECIFIC VARIABLES ######################################
-compute_availability_domain_list     = ["oDQF:SA-SANTIAGO-1-AD-1"]
-ssh_private_key                      = "./ssh_keys/auto_ssh_id_rsa"
+compute_availability_domain_list     = ["aBCD:RE-REGION-1-AD-1"]
 disk_label_map                       = { "D" : "DATA", "E" : "STUFF" }
 amount_of_disks                      = "2"
 disk_size_in_gb                      = "50"
-iscsi_disk_instance_compartment_name = "DALQUINT_HUB_Artifacts"
-volume_display_name                  = "windows_iscsi"
-backup_policy_level                  = "gold"
+iscsi_disk_instance_compartment_name = "MY_ARTIFACT_COMPARTMENT"
+volume_display_name                  = "diskbasename"
+backup_policy_level                  = "bronze"
+
+compute_display_name                 = "windows_machine"
+windows_compute_id                   = "ocid1.instance.oc1.re-region-1.foobar"
+os_password                          = "windows_machine_password"
+windows_compute_private_ip           = "1.2.3.4"
 ######################################## DISK SPECIFIC VARIABLES ######################################
+########## SAMPLE TFVAR FILE ##########
 ```
 
 ### Variable specific considerations
-MISSING
+- Variable `compute_availability_domain_list` has to contain the exact AD where the windows compute is. This is because you can not attach a disk that it's on a different AD to that machine. Make sure that this is as instructed, if not code will fail to succeed. 
 
 ### Sample provider
 
