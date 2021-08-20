@@ -41,10 +41,6 @@ variable "ssh_private_is_path" {
   default     = true
 }
 
-variable "ssh_private_key" {
-  description = "Determines what is the private key to connect to machine"
-}
-
 variable "amount_of_disks" {
   description = "Amount of equally sized disks"
 }

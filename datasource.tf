@@ -31,12 +31,12 @@ data "oci_core_volume_backup_policies" "BACKUPPOLICYISCSI" {
 locals {
   # Compartment OCID Local Accessor 
   compartment_id = data.oci_identity_compartments.COMPARTMENTS.compartments[0].id
-  
+
   # Backup Policy Local Accessor 
   backup_policy_iscsi_disk_id = data.oci_core_volume_backup_policies.BACKUPPOLICYISCSI.volume_backup_policies[0].id
 
   # 
   template               = file("${path.module}/${var.userdata}/${var.setup_ps1}")
   powershell             = "powershell.exe"
-  format_disk_ps1_source = "${path.module}/${var.userdata}/${var.format_disk_ps1}"    
+  format_disk_ps1_source = "${path.module}/${var.userdata}/${var.format_disk_ps1}"
 }
