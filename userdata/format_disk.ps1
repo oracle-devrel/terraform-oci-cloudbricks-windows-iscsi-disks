@@ -1,3 +1,9 @@
+# Copyright (c) 2021 Oracle and/or its affiliates.
+# All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+# format_disk.ps1
+#
+# Purpose: Takes care of attaching disk to instance
+
 Write-Host "Getting parameters of the execution"
 $partitionstyle=$args[0]
 $filesystem=$args[1]

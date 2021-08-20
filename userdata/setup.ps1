@@ -1,3 +1,9 @@
+# Copyright (c) 2021 Oracle and/or its affiliates.
+# All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+# setup.ps1
+#
+# Purpose: Takes care of making disk avaialble for usage
+
 $ipv4='${Disk_volume_ipv4}'
 $iqn='${Disk_volume_iqn}'
 $isWin2008 = '${iswin2008}'
