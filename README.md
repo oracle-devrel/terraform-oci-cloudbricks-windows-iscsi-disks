@@ -50,8 +50,6 @@ windows_compute_private_ip           = "1.2.3.4"
 
 The following is the base provider definition to be used with this module
 
-##### JUST COPIED FROM LINUX COMPUTE ######
-
 ```shell
 terraform {
   required_version = ">= 0.13.5"
